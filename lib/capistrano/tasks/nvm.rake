@@ -15,7 +15,7 @@ namespace :nvm do
   end
 
   task :map_bins do
-    SSHKit.config.default_env.merge!({ nvm_root: fetch(:nvm_path), nvm_version: fetch(:nvm_node) })
+    SSHKit.config.default_env.merge!({ nvm_root: fetch(:nvm_path), node_version: fetch(:nvm_node) })
     nvm_prefix = fetch(:nvm_prefix, proc { "#{fetch(:nvm_path)}/nvm-exec" })
     SSHKit.config.command_map[:nvm] = "#{fetch(:nvm_path)}/nvm.sh"
 
