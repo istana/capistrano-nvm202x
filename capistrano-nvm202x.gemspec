@@ -5,11 +5,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |gem|
   gem.name          = "capistrano-nvm202x"
   gem.version       = '2.2.0'
-  gem.authors       = ["Kir Shatrov", "Yamashita Yuu"]
-  gem.email         = ["shatrov@me.com", "yamashita@geishatokyo.com"]
-  gem.description   = %q{rbenv integration for Capistrano}
-  gem.summary       = %q{rbenv integration for Capistrano}
-  gem.homepage      = "https://github.com/capistrano/rbenv"
+  gem.authors       = ["Ivan Stana", "Kir Shatrov", "Yamashita Yuu"]
+  gem.email         = ["^_^@myrtana.sk", "shatrov@me.com", "yamashita@geishatokyo.com"]
+  gem.description   = %q{nvm integration for Capistrano}
+  gem.summary       = %q{nvm integration for Capistrano}
+  gem.homepage      = "https://github.com/istana/capistrano-nvm202x/"
   gem.metadata      = {
     "changelog_uri" => "https://github.com/istana/capistrano-nvm202x/releases"
   }

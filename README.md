@@ -1,21 +1,21 @@
-# Capistrano::rbenv
+# Capistrano::nvm202x
 
-This gem provides idiomatic rbenv support for Capistrano 3.x (and 3.x
+This gem provides idiomatic nvm support for Capistrano 3.x (and 3.x
 *only*).
 
 ## Please Note
 
-If you want to use this plugin with Cap 2.x, please use 1.x version of the gem.
-Source code and docs for older integration is available in [another repo](https://github.com/yyuu/capistrano-rbenv)
+(By original maintainer) Thanks a lot to [@yyuu](https://github.com/yyuu) for merging his gem with official one.
+And also thanks a lot to [capistrano-rbenv](https://github.com/capistrano/rbenv) for the code this repo originates from.
 
-Thanks a lot to [@yyuu](https://github.com/yyuu) for merging his gem with official one.
+Note: this gem is different from [capistrano-nvm](https://github.com/koenpunt/capistrano-nvm). This one doesn't play with `capistrano-rbenv` which was the reason to create `capistrano-nvm202x`.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
     gem 'capistrano', '~> 3.9'
-    gem 'capistrano-rbenv', '~> 2.2'
+    gem 'capistrano-nvm202x', '~> 2.2'
 
 And then execute:
 
@@ -24,30 +24,30 @@ And then execute:
 ## Usage
 
     # Capfile
-    require 'capistrano/rbenv'
+    require 'capistrano/nvm'
 
 
     # config/deploy.rb
-    set :rbenv_type, :user # or :system, or :fullstaq (for Fullstaq Ruby), depends on your rbenv setup
-    set :rbenv_ruby, '2.4.2'
+    set :nvm_type, :user # or :system, or :fullstaq (for Fullstaq Ruby), depends on your nvm setup
+    set :nvm_node, 'v14.15.1'
 
-    # in case you want to set ruby version from the file:
-    # set :rbenv_ruby, File.read('.ruby-version').strip
+    # in case you want to set nvm version from the file:
+    # set :nvm_node, File.read('.nvmrc').strip
 
-    set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-    set :rbenv_map_bins, %w{rake gem bundle ruby rails}
-    set :rbenv_roles, :all # default value
+    set :nvm_prefix, "source #{fetch(:nvm_path)}/nvm.sh; "
+    set :nvm_map_bins, %w{rake gem bundle yarn rails}
+    set :nvm_roles, :all # default value
 
-If your rbenv is located in some custom path, you can use `rbenv_custom_path` to set it.
+If your nvm is located in some custom path, you can use `nvm_custom_path` to set it.
 
 ### Defining the ruby version
 
-To set the Ruby version explicitly, add `:rbenv_ruby` to your Capistrano configuration:
+To set the Ruby version explicitly, add `:nvm_ruby` to your Capistrano configuration:
 
     # config/deploy.rb
-    set :rbenv_ruby, '2.4.2'
+    set :nvm_node, 'v14.15.1'
 
-Alternatively, allow the remote host's `rbenv` to [determine the appropriate Ruby version](https://github.com/rbenv/rbenv#choosing-the-ruby-version) by omitting `:rbenv_ruby`. This approach is useful if you have a `.ruby-version` file in your project.
+Alternatively, allow the remote host's `nvm` to determine the appropriate Node version](https://github.com/nvm-sh/nvm#usage) by omitting `:nvm_node`. This approach is useful if you have a `.nvmrc` file in your project.
 
 ## Contributing
 
