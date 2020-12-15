@@ -3,7 +3,7 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
-  gem.name          = "capistrano-rbenv"
+  gem.name          = "capistrano-nvm202x"
   gem.version       = '2.2.0'
   gem.authors       = ["Kir Shatrov", "Yamashita Yuu"]
   gem.email         = ["shatrov@me.com", "yamashita@geishatokyo.com"]
@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{rbenv integration for Capistrano}
   gem.homepage      = "https://github.com/capistrano/rbenv"
   gem.metadata      = {
-    "changelog_uri" => "https://github.com/capistrano/rbenv/releases"
+    "changelog_uri" => "https://github.com/istana/capistrano-nvm202x/releases"
   }
 
   gem.files         = `git ls-files`.split($/)
