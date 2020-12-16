@@ -10,12 +10,17 @@ And also thanks a lot to [capistrano-rbenv](https://github.com/capistrano/rbenv)
 
 Note: this gem is different from [capistrano-nvm](https://github.com/koenpunt/capistrano-nvm). This one doesn't play with `capistrano-rbenv` which was the reason to create `capistrano-nvm202x`.
 
+Current limitation: should be required after rbenv or after anything that adds environment variables.
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'capistrano', '~> 3.9'
-    gem 'capistrano-nvm202x', '~> 2.2'
+~~~ruby
+  gem 'capistrano', '~> 3.11', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-nvm202x', require: false
+~~~
 
 And then execute:
 
@@ -24,7 +29,8 @@ And then execute:
 ## Usage
 
     # Capfile
-    require 'capistrano/nvm'
+    require "capistrano/rbenv"
+    require "capistrano/nvm" # after rbenv
 
 
     # config/deploy.rb
