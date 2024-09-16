@@ -4,9 +4,9 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "capistrano-nvm202x"
-  gem.version       = '3.0.0'
-  gem.authors       = ["Ivan Stana", "Kir Shatrov", "Yamashita Yuu"]
-  gem.email         = ["^_^@myrtana.sk", "shatrov@me.com", "yamashita@geishatokyo.com"]
+  gem.version       = '4.0.0'
+  gem.authors       = ["Ivan Stana"]
+  gem.email         = ["^_^@myrtana.sk"]
   gem.description   = %q{nvm integration for Capistrano}
   gem.summary       = %q{nvm integration for Capistrano}
   gem.homepage      = "https://github.com/istana/capistrano-nvm202x/"
