@@ -37,8 +37,6 @@ namespace :load do
       nvm_path ||= case fetch(:nvm_type, :user)
       when :system
         '/usr/local/opt/nvm'
-      when :fullstaq
-        '/usr/lib/nvm'
       else
         '$HOME/.nvm'
       end
