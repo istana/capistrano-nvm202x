@@ -15,12 +15,18 @@ namespace :nvm do
   end
 
   task :map_bins do
-    SSHKit.config.default_env.merge!({ nvm_root: fetch(:nvm_path), node_version: fetch(:nvm_node) })
-    nvm_prefix = fetch(:nvm_prefix, proc { "source #{fetch(:nvm_path)}/nvm.sh; " })
-    SSHKit.config.command_map[:nvm] = "#{fetch(:nvm_path)}/nvm.sh"
+    nvm_binaries_path = "#{fetch(:nvm_node_dir)}/bin/"
 
+    SSHKit.config.default_env.merge!({
+      nvm_root: fetch(:nvm_path),
+      node_version: fetch(:nvm_node),
+      path: "#{nvm_binaries_path}:$PATH",
+    })
+
+    # cssbundling or anything calling yarn directly won't trigger this
+    # only running yarn via sshkit
     fetch(:nvm_map_bins).uniq.each do |command|
-      SSHKit.config.command_map.prefix[command.to_sym].unshift(nvm_prefix)
+      SSHKit.config.command_map[command.to_sym] = "#{nvm_binaries_path}/#{command}"
     end
   end
 end
@@ -45,6 +51,6 @@ namespace :load do
     set :nvm_roles, fetch(:nvm_roles, :all)
 
     set :nvm_node_dir, -> { "#{fetch(:nvm_path)}/versions/node/#{fetch(:nvm_node)}" }
-    set :nvm_map_bins, %w{rake gem bundle yarn rails}
+    set :nvm_map_bins, %w{corepack node npm npx yarn yarnpkg}
   end
 end
