@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "capistrano-nvm202x"
-  gem.version       = '4.0.0'
+  gem.version       = '4.1.0'
   gem.authors       = ["Ivan Stana"]
   gem.email         = ["^_^@myrtana.sk"]
   gem.description   = %q{nvm integration for Capistrano}
