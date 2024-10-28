@@ -39,7 +39,7 @@ And then execute:
 
     # config/deploy.rb
     set :nvm_type, :user # or :system, depends on your nvm setup
-    set :nvm_node, 'v20.17.0'
+    set :nvm_node, 'v23.1.0'
 
     # in case you want to set nvm version from the file:
     # set :nvm_node, File.read('.nvmrc').strip
@@ -47,18 +47,14 @@ And then execute:
     # optional configuration
     set :nvm_custom_path, '$HOME/.nvm' # sets custom `nvm_path`
     set :nvm_roles, :all
-    set :nvm_prefix, "source #{fetch(:nvm_path)}/nvm.sh; " # set default command prefix
-    set :nvm_map_bins, %w{rake gem bundle yarn rails} # commands for which prefix is added
-
-
-If your nvm is located in some custom path, you can use `nvm_custom_path` to set it.
+    set :nvm_map_bins, %w{corepack node npm npx yarn yarnpkg} # commands for which prefix is added
 
 ### Defining the node version
 
 To set the Node version explicitly, add `:nvm_node` to your Capistrano configuration:
 
     # config/deploy.rb
-    set :nvm_node, 'v20.17.0'
+    set :nvm_node, 'v23.1.0'
 
 Alternatively, allow the remote host's `nvm` to determine the appropriate Node version](https://github.com/nvm-sh/nvm#usage) by omitting `:nvm_node`. This approach is useful if you have a `.nvmrc` file in your project.
 
