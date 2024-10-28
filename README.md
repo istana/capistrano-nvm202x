@@ -6,11 +6,7 @@ This gem provides idiomatic nvm (Node Version Manager) support for Capistrano 3.
 
 **NOTE:** this gem is different from [capistrano-nvm](https://github.com/koenpunt/capistrano-nvm). Not sure why, but `capistrano-nvm` doesn't play with `capistrano-rbenv` which was the reason to create `capistrano-nvm202x`.
 
-Current limitation: should be required after rbenv or after anything that adds environment variables.
-
 And also thanks a lot to [capistrano-rbenv](https://github.com/capistrano/rbenv) for the code this repo originates from.
-
-Note: Node version is not set explicitly as an environment variable, but the existence of version is checked. Otherwise it depends on NVM picking up the correct version. Please use `.rvmrc` to specify version. Options need testing.
 
 -----------------------------------
 
@@ -22,7 +18,6 @@ Add this line to your application's Gemfile:
 
 ~~~ruby
   gem 'capistrano', '~> 3.19', require: false
-  gem 'capistrano-rbenv', require: false
   gem 'capistrano-nvm202x', require: false
 ~~~
 
@@ -33,9 +28,7 @@ And then execute:
 ## Usage
 
     # Capfile
-    require "capistrano/rbenv"
-    require "capistrano/nvm" # after rbenv
-
+    require "capistrano/nvm"
 
     # config/deploy.rb
     set :nvm_type, :user # or :system, depends on your nvm setup
